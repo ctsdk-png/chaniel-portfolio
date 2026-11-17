@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chaníel Trévon Symeré King — independent technology, automation, business operations, and practical support services.">
+  <meta name="theme-color" content="#090909">
+  <title>Chaníel Trévon Symeré King | Independent Services | Technology & Operations</title>
+  <style>
+    :root {
+      --black: #090909;
+      --panel: #131313;
+      --panel2: #1b1b1b;
+      --white: #f7f7f7;
+      --muted: #b7b7b7;
+      --silver: #c7c7c7;
+      --line: #343434;
+      --accent: #e2e2e2;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--black); color: var(--white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .topbar { border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; background: rgba(9,9,9,.94); backdrop-filter: blur(12px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-size: .94rem; font-weight: 750; letter-spacing: .055em; max-width: 330px; line-height: 1.25; }
+    .brand span { color: var(--silver); font-weight: 500; display: block; font-size: .68rem; letter-spacing: .2em; margin-top: 5px; }
+    .navlinks { display: flex; gap: 24px; align-items: center; font-size: .88rem; color: var(--muted); }
+    .navlinks a:hover { color: white; }
+    .menu { display: none; border: 1px solid var(--line); background: var(--panel); color: white; padding: 9px 12px; border-radius: 8px; }
+    .hero { padding: 112px 0 94px; border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 80% 10%, #292929 0%, #111 34%, #090909 72%); }
+    .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: .73rem; color: var(--silver); font-weight: 700; }
+    h1 { font-size: clamp(2.65rem, 7vw, 5.6rem); line-height: 1.02; letter-spacing: -.055em; max-width: 900px; margin: 22px 0; }
+    h1 em { color: var(--silver); font-style: normal; }
+    .lead { max-width: 700px; color: #c9c9c9; font-size: clamp(1.05rem, 2vw, 1.25rem); }
+    .actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 34px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 13px 19px; border-radius: 6px; font-weight: 700; font-size: .91rem; border: 1px solid var(--silver); }
+    .btn.primary { background: var(--white); color: #090909; }
+    .btn.secondary { color: var(--white); background: transparent; border-color: #555; }
+    .btn:hover { transform: translateY(-1px); }
+    section { padding: 86px 0; border-bottom: 1px solid var(--line); }
+    .section-head { max-width: 720px; margin-bottom: 35px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.1; letter-spacing: -.04em; margin: 12px 0; }
+    .section-head p, .muted { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { border: 1px solid var(--line); background: linear-gradient(145deg, #171717, #101010); padding: 25px; border-radius: 10px; }
+    .card .num { color: #929292; font-size: .75rem; letter-spacing: .18em; }
+    h3 { margin: 9px 0 12px; font-size: 1.22rem; }
+    .card p { color: var(--muted); margin: 0 0 14px; font-size: .94rem; }
+    .card ul { padding-left: 18px; color: #d0d0d0; font-size: .9rem; margin-bottom: 0; }
+    .card li { margin: 5px 0; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 45px; align-items: start; }
+    .statement { border-left: 2px solid #bdbdbd; padding: 7px 0 7px 22px; color: #ddd; font-size: 1.15rem; }
+    .pillbox { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .pill { border: 1px solid #414141; color: #d0d0d0; padding: 7px 11px; border-radius: 999px; font-size: .82rem; }
+    .project { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+    .project-visual { min-height: 280px; border: 1px solid #444; border-radius: 12px; background: linear-gradient(145deg, #252525, #0e0e0e); display: grid; place-items: center; text-align: center; padding: 25px; }
+    .project-visual strong { font-size: 2.2rem; letter-spacing: .12em; }
+    .project-visual span { display: block; color: #aaa; font-size: .78rem; letter-spacing: .2em; margin-top: 8px; }
+    .notice { color: #aaa; font-size: .84rem; border-top: 1px solid var(--line); padding-top: 13px; margin-top: 20px; }
+    .contact { background: #111; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+    .contact-card { border: 1px solid #414141; border-radius: 10px; padding: 25px; background: #171717; }
+    .contact-line { padding: 12px 0; border-bottom: 1px solid #333; color: #ddd; overflow-wrap: anywhere; }
+    .contact-line:last-child { border-bottom: 0; }
+    footer { padding: 28px 0; color: #969696; font-size: .82rem; }
+    footer .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .price-card { border:1px solid #414141; border-radius:10px; padding:24px; background:linear-gradient(145deg,#1a1a1a,#101010); }
+    .price { font-size:1.85rem; font-weight:800; letter-spacing:-.04em; margin:12px 0 4px; }
+    .price small { font-size:.82rem; color:#aaa; font-weight:500; letter-spacing:0; }
+    .price-card p, .price-card li { color:#c3c3c3; font-size:.91rem; }
+    .price-card ul { padding-left:18px; }
+    .price-note { color:#aaa; font-size:.85rem; margin-top:20px; border-top:1px solid var(--line); padding-top:15px; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .step { border:1px solid var(--line); border-radius:9px; padding:19px; background:#121212; }
+    .step b { color:#eee; display:block; margin-bottom:6px; }
+    .inquiry-note { border:1px solid #444; background:#171717; border-radius:10px; padding:20px; }
+    @media (max-width:820px) { .pricing-grid,.steps {grid-template-columns:1fr 1fr;} }
+    @media (max-width:620px) { .pricing-grid,.steps {grid-template-columns:1fr;} }
+
+    @media (max-width: 820px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+      .about-grid, .project, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding: 82px 0 72px; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 30px, var(--max)); }
+      .nav { min-height: 68px; }
+      .menu { display: block; }
+      .navlinks { display: none; position: absolute; top: 68px; left: 0; right: 0; background: #101010; border-bottom: 1px solid var(--line); padding: 18px 22px; flex-direction: column; align-items: flex-start; }
+      .navlinks.open { display: flex; }
+      .grid { grid-template-columns: 1fr; }
+      section { padding: 66px 0; }
+      .hero { padding: 72px 0 62px; }
+      .brand { max-width: 260px; font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home">CHANÍEL TRÉVON SYMERÉ KING<span>TECHNOLOGY · OPERATIONS · SOLUTIONS</span></a>
+      <button class="menu" id="menuButton" aria-expanded="false" aria-controls="navlinks">Menu</button>
+      <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+        <a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#work">Projects</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="eyebrow">Independent consulting & practical support</div>
+        <h1>Solutions for the way <em>you work.</em></h1>
+        <p class="lead">Technology, automation, business operations, and hands-on support for individuals, startups, and established organizations. Practical solutions. Clear communication. Work shaped around your needs.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Discuss a project</a>
+          <a class="btn secondary" href="#services">Explore services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What we can help with</div>
+          <h2>Services built around real needs.</h2>
+          <p>From digital projects to day-to-day operational support, explore the service areas available for discussion. Scope, availability, qualifications, and pricing are confirmed before each engagement.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="num">01 / DIGITAL</div>
+            <h3>Technology & Digital Solutions</h3>
+            <p>Practical digital tools and technical assistance for individuals and organizations.</p>
+            <ul><li>Website creation and updates</li><li>Landing pages and digital presence</li><li>Dashboards and spreadsheet tools</li><li>Technical troubleshooting</li><li>Custom digital workflow concepts</li></ul>
+          </article>
+          <article class="card">
+            <div class="num">02 / AI & AUTOMATION</div>
+            <h3>AI & Workflow Automation</h3>
+            <p>Explore ways to reduce repetitive work and make everyday processes more organized.</p>
+            <ul><li>AI assistant planning and setup</li><li>Prompt and workflow development</li><li>Research and reporting workflows</li><li>Task management systems</li><li>Automation prototypes</li></ul>
+          </article>
+          <article class="card">
+            <div class="num">03 / OPERATIONS</div>
+            <h3>Business & Administrative Support</h3>
+            <p>Organized support for the tasks that keep a business moving.</p>
+            <ul><li>Data entry and document organization</li><li>Scheduling and administrative assistance</li><li>Customer communication support</li><li>Inventory and order tracking</li><li>Process documentation</li></ul>
+          </article>
+          <article class="card">
+            <div class="num">04 / LOGISTICS</div>
+            <h3>Logistics & Moving Assistance</h3>
+            <p>Hands-on help for appropriate local projects and operational needs.</p>
+            <ul><li>Packing and unpacking</li><li>Loading and unloading assistance</li><li>Furniture rearrangement</li><li>Warehouse organization</li><li>Inventory counting support</li></ul>
+          </article>
+          <article class="card">
+            <div class="num">05 / SECURITY</div>
+            <h3>Physical Security Support</h3>
+            <p>Security-related services within current licensing, assignment, and legal requirements.</p>
+            <ul><li>Security operations</li><li>Access control and visitor management</li><li>Surveillance monitoring</li><li>Incident documentation</li><li>Security desk operations</li></ul>
+          </article>
+          <article class="card">
+            <div class="num">06 / CLIENT SUPPORT</div>
+            <h3>Customer & Nonclinical Support</h3>
+            <p>Professional assistance focused on communication, coordination, and respectful service.</p>
+            <ul><li>Customer service support</li><li>Appointment coordination</li><li>Front-desk assistance</li><li>Nonclinical client support</li><li>Call and inquiry handling</li></ul>
+          </article>
+        </div>
+        <p class="notice">Services are subject to project review and applicable qualifications. Healthcare-related assistance is limited to nonclinical or properly authorized duties. Security work is offered only when licensing and assignment requirements are met. No legal, medical, financial, or cybersecurity professional services are implied.</p>
+      </div>
+    </section>
+
+
+    <section id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Clear starting points</div>
+          <h2>Practical services. Straightforward pricing.</h2>
+          <p>These are introductory starting rates, not final quotes. Every project receives a written scope and price for approval before work begins.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <div class="num">01 / DIGITAL PROJECTS</div>
+            <h3>Websites & Digital Tools</h3>
+            <div class="price">$150 <small>starting project rate</small></div>
+            <p>For a focused landing page or a small digital update.</p>
+            <ul><li>Single-page website setup</li><li>Basic content and layout</li><li>Mobile-friendly presentation</li><li>One agreed revision round</li></ul>
+          </article>
+          <article class="price-card">
+            <div class="num">02 / AUTOMATION</div>
+            <h3>Workflow & AI Setup</h3>
+            <div class="price">$125 <small>starting project rate</small></div>
+            <p>For a clearly defined workflow or small prototype.</p>
+            <ul><li>Process review and plan</li><li>Prompt or workflow configuration</li><li>Basic testing and handoff notes</li><li>Tools and subscriptions quoted separately</li></ul>
+          </article>
+          <article class="price-card">
+            <div class="num">03 / BUSINESS SUPPORT</div>
+            <h3>Administrative & Client Support</h3>
+            <div class="price">$25 <small>per hour starting rate</small></div>
+            <p>For organized, clearly scoped support tasks.</p>
+            <ul><li>Data entry and document organization</li><li>Scheduling and coordination</li><li>Customer inquiry support</li><li>Hours and deliverables agreed in advance</li></ul>
+          </article>
+          <article class="price-card">
+            <div class="num">04 / DATA & DASHBOARDS</div>
+            <h3>Spreadsheets & Dashboards</h3>
+            <div class="price">$100 <small>starting project rate</small></div>
+            <p>For a simple tracker, organized spreadsheet, or basic dashboard.</p>
+            <ul><li>Structured spreadsheet setup</li><li>Basic formulas and summaries</li><li>Readable layout</li><li>Complex integrations quoted separately</li></ul>
+          </article>
+          <article class="price-card">
+            <div class="num">05 / LOGISTICS</div>
+            <h3>Moving & Organization Help</h3>
+            <div class="price">$30 <small>per hour starting rate</small></div>
+            <p>For suitable local, non-specialist hands-on assistance.</p>
+            <ul><li>Packing and unpacking help</li><li>Loading and unloading assistance</li><li>Inventory counting and organization</li><li>Travel, materials, and minimum time agreed first</li></ul>
+          </article>
+          <article class="price-card">
+            <div class="num">06 / SPECIALIZED SUPPORT</div>
+            <h3>Security & Nonclinical Support</h3>
+            <div class="price">Custom <small>quote after review</small></div>
+            <p>Only for work that fits applicable credentials, authorization, and assignment requirements.</p>
+            <ul><li>Scope and eligibility reviewed first</li><li>Security work subject to NYS licensing rules</li><li>Healthcare-related work limited to authorized nonclinical duties</li><li>No medical or legal services</li></ul>
+          </article>
+        </div>
+        <p class="price-note"><strong>Pricing notes:</strong> Final rates depend on scope, timeline, complexity, location, and required tools. Third-party software, hosting, materials, travel, and other pass-through costs are not included unless expressly stated. No work begins until the written quote is approved.</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="eyebrow">About the company</div>
+          <h2>One point of contact. Multiple ways to solve a problem.</h2>
+          <p class="muted">Chaníel Trévon Symeré King is an independent service brand focused on technology, business operations, and practical support. The approach is straightforward: understand the need, agree on the scope, and work toward a useful result.</p>
+          <p class="muted">The background behind the brand includes professional experience in logistics, personal care, and physical security, alongside independent technology development and digital systems work.</p>
+        </div>
+        <div>
+          <div class="statement">“Good solutions should make work clearer, smoother, and easier to manage.”</div>
+          <div class="pillbox">
+            <span class="pill">Problem-solving</span><span class="pill">Communication</span><span class="pill">Adaptability</span><span class="pill">Digital tools</span><span class="pill">Operations</span><span class="pill">Client-focused</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Project spotlight</div>
+          <h2>Building practical technology.</h2>
+          <p>A developing project can show how ideas are translated into working systems. This section will grow as demonstrations and approved work samples are ready to share.</p>
+        </div>
+        <div class="project">
+          <div class="project-visual"><div><strong>AVEN</strong><span>AI · WORKFLOW · PRODUCTIVITY</span></div></div>
+          <div>
+            <div class="eyebrow">Independent development project</div>
+            <h3>AVEN — Autonomous Virtual Employee & Networker</h3>
+            <p class="muted">An in-development AI productivity and operations system exploring task planning, approval workflows, work products, research, and digital memory.</p>
+            <p class="muted">The project is under active development. Capabilities will be described as completed only after they have been tested and verified.</p>
+            <span class="pill">Python</span> <span class="pill">Local AI</span> <span class="pill">APIs</span> <span class="pill">Dashboard</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="eyebrow">Start a conversation</div>
+          <h2>Have a project in mind?</h2>
+          <p class="muted">Tell me what you are trying to accomplish, what is not working, and when you need help. I will review the request and respond about fit, timing, and next steps.</p>
+          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfcu3sLPxSGEUssB_Cl1sRdlDJ1qAEyLFKy9pZduLsXvbKetQ/viewform" target="_blank" rel="noopener noreferrer">Request a Service</a>
+        </div>
+        <div class="contact-card">
+          <h3>Contact</h3>
+          <div class="contact-line"><span class="muted">Email</span><br><a href="mailto:Chanieltsdk@gmail.com">Chanieltsdk@gmail.com</a></div>
+          <div class="contact-line"><span class="muted">Phone</span><br><a href="tel:+13473823963">347-382-3963</a></div>
+          <div class="contact-line"><span class="muted">Service area</span><br>Bronx, New York · Remote projects considered</div>
+        </div>
+
+        <div class="inquiry-note">
+          <h3>How it works</h3>
+          <div class="steps">
+            <div class="step"><b>1. Tell me what you need</b><span class="muted">Send a short project description and timeline.</span></div>
+            <div class="step"><b>2. Review the proposal</b><span class="muted">Receive a scope, schedule, starting price, and written quote.</span></div>
+            <div class="step"><b>3. Approve and begin</b><span class="muted">Work starts only after both sides agree in writing.</span></div>
+          </div>
+          <p class="muted"><strong>Payment:</strong> Invoices and agreed digital payment methods are available. Payment instructions, any deposit, milestones, and due dates are confirmed in the written proposal. Do not send payment before receiving and approving the project terms.</p>
+          <p class="muted"><strong>Client inquiries:</strong> Use the Request a Service button to submit your project details through my Google Form. Submitting an inquiry does not guarantee project acceptance or create a service agreement. Payment arrangements are discussed and agreed upon before work begins.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span id="year"></span> Chaníel Trévon Symeré King. Independent services. All rights reserved.</span>
+      <span>Technology · Operations · Solutions</span>
+    </div>
+  </footer>
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const navlinks = document.getElementById('navlinks');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navlinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
